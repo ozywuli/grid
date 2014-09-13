@@ -1,0 +1,849 @@
+    <!DOCTYPE html>
+    <!--[if IE 8]>           <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--><html class="no-js"> <!--<![endif]-->
+
+    <!--
+    __  __
+    /  \  / \ /
+    \__/ /_  |
+
+    ********************************
+    Theme by: ozywuli.com
+    Name:
+    Version: 1.0
+    Year: 2014
+
+    ********************************
+
+    -->
+
+    <html lang="{block:English}en{/block:English}{block:French}fr{/block:French}{block:German}de{/block:German}{block:Japanese}ja{/block:Japanese}{block:Italian}it{/block:Italian}{block:Spanish}es{/block:Spanish}{block:Polish}pl{/block:Polish}">
+
+
+
+
+    <head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{Title}{block:SearchPage} ({lang:Search results for SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
+
+
+    <link rel="stylesheet" href="http://static.tumblr.com/wfm2t5x/Lyfn4zext/fonts.css">
+
+    <!-- Fav Icons -->
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon" href="{PortraitURL-128}">
+
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+    <!-- Theme Options -->
+    {block:Hidden}
+
+    <meta name="if:Twitter Feed" content="0">
+    <meta name="if:Google Analytics" content="0">
+    <meta name="text:Google Analytics ID" content="">
+    {/block:Hidden}
+
+    <!-- Reset -->
+    <style>
+    *,
+    *:before,
+    *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    }
+
+    html, body {
+    font-size: 62.5%;
+    font-style: normal;
+    font-weight: normal;
+    height: 100%;
+    line-height: 1.5;
+    position: relative;
+    cursor: default;
+    }
+
+    body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    }
+
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+    display: block;
+    }
+
+    ol, ul, li {
+    list-style: none;
+    }
+
+    a {
+    text-decoration: none;
+    }
+
+    a:hover {
+    cursor: pointer;
+    }
+
+    blockquote, q {
+    quotes: none;
+    }
+
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+    content: '';
+    content: none;
+    }
+
+    table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+
+    img,
+    object,
+    embed {
+    max-width: 100%;
+    height: auto;
+    }
+
+    object,
+    embed {
+    height: 100%;
+    }
+
+    img {
+    -ms-interpolation-mode: bicubic;
+    display: inline-block;
+    vertical-align: middle;
+    }
+
+    textarea {
+    height: auto;
+    min-height: 50px;
+    }
+
+    select {
+    width: 100%;}
+
+
+    /* Utilities */
+    .clearfix:before,
+    .clearfix:after {
+    content: " ";
+    display: table;
+    }
+    .clearfix:after {
+    clear: both;
+    }
+    .clearfix {
+    *zoom: 1;
+    }
+
+    </style>
+
+    <!-- Theme CSS -->
+    <style>
+
+    /* Globals */
+    body {
+      background-color: {BackgroundColor};
+    }
+    a {
+      color: {AccentColor};
+    }
+
+    .container {
+      margin-left: 242px;
+    }
+
+    .centered-layout {
+      margin: 0 auto;
+      max-width: 1080px;
+    }
+
+    /* Header */
+
+    .page-header {
+      box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.15)
+    }
+    .page-header__image {
+      width: 200px;
+    }
+    .page-header__title {
+      color: {TitleColor};
+      font-family: {TitleFont};
+      font-weight: {TitleFontWeight};
+    }
+    .screenreader-text {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .page-header__icons--search {
+      color: #000;
+      font-size: 20px;
+    }
+
+.bar-icon {
+  height: 3px;
+  width: 20px;
+  background: #000;
+  display: block;
+  opacity: 1;
+  margin-top: 4px;
+  -webkit-transition: -webkit-transform 0.15s linear;
+  -o-transition: -o-transform 0.15s linear;
+  -ms-transition: -ms-transform 0.15s linear;
+  -moz-transition: -moz-transform 0.15s linear;
+  transition: transform 0.15s linear;
+  -webkit-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.bar-icon:nth-child(2) {
+-webkit-transition: opacity 0.1s linear;
+-o-transition: opacity 0.1s linear;
+-ms-transition: opacity 0.1s linear;
+-moz-transition: opacity 0.1s linear;
+transition: opacity 0.1s linear;
+}
+
+.active .bar-icon:nth-child(1) {
+-webkit-transform: rotate(45deg) translate3d(5px, 5px, 0);
+-o-transform: rotate(45deg) translate3d(5px, 5px, 0);
+-ms-transform: rotate(45deg) translate3d(5px, 5px, 0);
+-moz-transform: rotate(45deg) translate3d(5px, 5px, 0);
+transform: rotate(45deg) translate3d(5px, 5px, 0);
+
+}
+.bar-icon:nth-child(2) {
+-webkit-transition: opacity 0.1s linear;
+-o-transition: opacity 0.1s linear;
+-ms-transition: opacity 0.1s linear;
+-moz-transition: opacity 0.1s linear;
+transition: opacity 0.1s linear;
+}
+.active .bar-icon:nth-child(2) {
+opacity: 0;
+}
+.active .bar-icon:nth-child(3) {
+-webkit-transform: rotate(-45deg) translate3d(5px, -5px, 0);
+-o-transform: rotate(-45deg) translate3d(5px, -5px, 0);
+-ms-transform: rotate(-45deg) translate3d(5px, -5px, 0);
+-moz-transform: rotate(-45deg) translate3d(5px, -5px, 0);
+transform: rotate(-45deg) translate3d(5px, -5px, 0);
+}
+
+
+    /* Navigation */
+
+    .main-nav {
+      background: #333;
+      font-family: sans-serif;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 218px;
+      padding: 24px;
+    }
+    .main-nav__avatar {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 24px;
+      border: 1px solid #CCC;
+      padding: 3px;
+      width: 72px;
+    }
+    .main-nav__items {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .main-nav__item {
+      display: block;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #FFF;
+      text-transform: uppercase;
+      padding: 10px 15px;
+      font-size: 14px;
+      width: 100%;
+    }
+    .main-nav__item:hover {
+      background: rgba(255, 255, 255, 0.1)
+    }
+
+    #category-links {
+      display:none;
+    }
+    .main-nav__item--category {
+      text-indent: 10px;
+    }
+    .nav-divider {
+      border-top: 1px solid #0A0A0A;
+      box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.04) inset;
+      display: block;
+      margin: 0px 25px;
+    }
+
+
+    .post-meta {
+      width: 100%;
+    }
+
+    .post-meta__category a {
+      display: none;
+    }
+    .post-meta__category a:nth-of-type(1) {
+      display: block;
+      color: #FFF;
+    }
+
+    .post-meta__category a[href*="bola"] {
+      background:#4D2988;
+    }
+    .post-meta__category a[href*="ladriver"] {
+      background: #F6E901;
+    }
+    .post-meta__category a[href*="lasocial"] {
+      background: #F26F21;
+    }
+    .post-meta__category a[href*="liquidla"] {
+      background: #B5901C;
+    }
+    .post-meta__category a[href*="features"] {
+      background: #000;
+    }
+    .post-meta__category a[href*="food"] {
+      background: #FCB316;
+    }
+    .post-meta__category a[href*="culture"] {
+      background: #47C5DD;
+    }
+    .post-meta__category a[href*="life+style"] {
+      background: #B22D33;
+    }
+    .post-meta__category a[href*="citythink"] {
+      background: #152840;
+    }
+    .post-meta__category a[href*="travel"] {
+      background: #ABC050;
+    }
+
+    </style>
+
+    <!-- Custom CSS -->
+    <style>
+    {CustomCSS}
+    </style>
+
+
+    </head>
+
+
+
+
+    <body>
+
+
+<!-- Begin Container -->
+<div class="container">
+
+    <!-- Header -->
+    <header class="page-header">
+
+      <div class="centered-layout">
+
+        <!-- Title -->
+        {block:ShowTitle}
+        <h1>
+        <a href="/" class="page-header__title"><img src="{HeaderImage}" alt="Los Angeles magazine" class="page-header__image"></a>
+        </h1>
+        <h1 class="screenreader-text">{Title}</h1>
+        {/block:ShowTitle}
+
+        <!-- Description -->
+        {block:ShowDescription}
+        <div class="page-header__description">{Description}</div>
+        {/block:ShowDescription}
+
+        <!-- Search + Menu Icons -->
+        <div class="page-header__icons">
+          <a href="" class="page-header__icons--search" id="open-search"><i class="fa fa-search"></i><span class="screenreader-text">Search</span></a>
+          <a href="" class="page-header__icons--menu" id="open-nav-menu">
+            <div class="bar-icon-wrapper">
+              <span class="bar-icon"></span>
+              <span class="bar-icon"></span>
+              <span class="bar-icon"></span>
+            </div>
+          </a>
+        </div>
+
+        <div>
+          <a href="">GO TO LAMAG.COM</a>
+          <p>Where to Eat, Where to Shop, and What to Do in Los Angeles</p>
+        </div>
+
+      </div>
+
+
+    </header>
+
+
+
+
+    <!-- Navigation -->
+    <nav class="main-nav" id="nav-menu">
+
+    <!-- Avatar -->
+    {block:ShowAvatar}
+    <a href="/" class="main-nav__avatar"><img src="{PortraitURL-64}" alt="{Title}"></a>
+    {/block:ShowAvatar}
+
+    <div class="clearfix main-nav__menu">
+
+      <div class="main-nav__items clearfix">
+
+        <a href="#" class="main-nav__item" id="open-category-links">CATEGORIES<i class="fa fa-chevron-down"></i></a>
+        <div class="main-nav__items--categories clearfix" id="category-links">
+          <ul>
+            <li><a href="/tagged/featured" class="main-nav__item main-nav__item--category">FEATURED</a></li>
+            <li><a href="/tagged/food" class="main-nav__item main-nav__item--category">FOOD</a></li>
+            <li><a href="/tagged/culture" class="main-nav__item main-nav__item--category">CULTURE</a></li>
+            <li><a href="/tagged/life+style" class="main-nav__item main-nav__item--category">LIFE+STYLE</a></li>
+            <li><a href="/tagged/ciythink" class="main-nav__item main-nav__item--category">CITYTHINK</a></li>
+            <li><a href="/tagged/bola" class="main-nav__item main-nav__item--category">BOLA</a></li>
+            <li><a href="/tagged/ladriver" class="main-nav__item main-nav__item--category">LA DRIVER</a></li>
+            <li><a href="/tagged/liquidla" class="main-nav__item main-nav__item--category">LIQUID LA</a></li>
+            <li><a href="/tagged/travel" class="main-nav__item main-nav__item--category">TRAVEL</a></li>
+            <li><a href="/tagged/lasocial" class="main-nav__item main-nav__item--category">LA SOCIAL</a></li>
+          </ul>
+        </div>
+
+        <a href="/archive" class="main-nav__item">{lang:Archive}</a>
+        {block:AskEnabled}<a href="/ask" class="main-nav__item">{AskLabel}</a>{/block:AskEnabled}
+        {block:HasPages}{block:Pages}<a href="{URL}" class="main-nav__item">{Label}</a>{/block:Pages}{/block:HasPages}
+        <a href="" class="main-nav__item">RANDOM</a>
+
+      </div>
+
+
+    </nav>
+
+
+    <div class="search">
+
+      <form class="search__search-bar" action="/search" method="get">
+        <input type="text" placeholder="{lang:Search}" name="q" value="{SearchQuery}">
+        <input type="submit" value="{lang:Search}">
+      </form>
+
+    </div>
+
+
+
+    <!-- Content = Search Page + Tag Page + Post Types -->
+    <section class="page-content centered-layout">
+
+
+      <!-- Search Page -->
+      {block:SearchPage}
+      <div class="result">
+      <p>{lang:Found SearchResultCount results for SearchQuery 2}</p>
+      {block:NoSearchResults}<p>{lang:No results for SearchQuery 2}</p>{/block:NoSearchResults}
+      </div>
+      {/block:SearchPage}
+
+
+      <!-- Tag Page -->
+      {block:TagPage}<div class="result"><p>{lang:TagResultCount posts tagged Tag 3}</p></div>{/block:TagPage}
+
+
+      <!-- Post Types -->
+      {block:Posts}
+      <article class="posts {TagsAsClasses} {block:NoteCount}{NoteCount} notecount {/block:NoteCount} {block:IndexPage}posts-masonry-hook{/block:IndexPage}" id="{PostID}">
+
+        <!-- Text -->
+        {block:Text}
+        <div class="text items">
+        {block:Title}<h3>{Title}</h3>{/block:Title}
+        {Body}
+        </div>
+
+          <!-- Permalink Meta -->
+          {block:PermalinkPage}
+          <ul class="hashtags">
+          {block:HasTags}
+             {block:Tags}
+                  <li><a href="{TagURL}">#{Tag}</a></li>
+             {/block:Tags}
+          {/block:HasTags}
+          </ul>
+          {/block:PermalinkPage}
+
+          <!-- Index Meta -->
+          {block:IndexPage}
+          <span class="yes-notes">
+              <a href="{Permalink}">
+              {block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}
+              </a>
+          </span>
+          <span class="no-notes">
+              <a href="{Permalink}">0 notes</a>
+          </span>
+          {/block:IndexPage}
+        {/block:Text}
+
+
+        <!-- Quote -->
+        {block:Quote}
+        <div class="quote items">
+        <blockquote class="words {Length}">&#8220;{Quote}&#8221;</blockquote>
+        {block:Source}<p class="source">&mdash; {Source}</p>{/block:Source}
+        </div>
+        {/block:Quote}
+
+
+        <!-- Link -->
+        {block:Link}
+        <div class="link items">
+        <h3><a href="{URL}" {Target}>{Name}</a></h3>
+        {block:Description}<div class="caption">{Description}</div>{/block:Description}
+        </div>
+        {/block:Link}
+
+
+        <!-- Video -->
+        {block:Video}
+        <div class="video items">
+        {Video-500}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Video}
+
+
+        <!-- Audio -->
+        {block:Audio}
+        <div class="audio items">
+        {block:AlbumArt}<img src="{AlbumArtURL}" alt="">{/block:AlbumArt}
+        {AudioPlayerBlack}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Audio}
+
+
+        <!-- Photo -->
+        {block:Photo}
+        <div class="photo items">
+        {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>{LinkCloseTag}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Photo}
+
+
+        <!-- Photoset -->
+        {block:Photoset}
+        <div class="photoset items">
+
+        {block:Photos}
+        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        {/block:Photos}
+        </div>
+        {/block:Photoset}
+
+
+        <!-- Panorama -->
+        {block:Panorama}
+        <div class="panorama items">
+        {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+        </div>
+        {/block:Panorama}
+
+
+        <!-- Chat -->
+        {block:Chat}
+        <div class="chat items">
+        {block:Title}<h3>{Title}</h3>{/block:Title}
+        <ul class="conversation">
+        {block:Lines}
+        <li class="line {Alt}">
+        {block:Label}<span class="person">{Label}</span>{/block:Label}
+        <span class="person-said">{Line}</span>
+        </li>
+        {/block:Lines}
+        </ul>
+        </div>
+        {/block:Chat}
+
+
+        <!-- Answer -->
+        {block:Answer}
+        <div class="answer items">
+        <img src="{AskerPortraitURL-40}">
+        {Asker}
+        {Question}
+        {Answer}
+        </div>
+        {/block:Answer}
+
+
+        <!-- Start Index Post Meta -->
+        <div class="post-meta">
+
+          <!-- Post "Category" -->
+          {block:HasTags}
+          <div class="post-meta__category">
+          {block:Tags}
+          <a href="{TagURL}">#{Tag} </a>
+          {/block:Tags}
+          </div>
+          {/block:HasTags}
+
+          <!-- Post Tags -->
+          {block:HasTags}
+          <div class="post-meta__tags">
+          {block:Tags}
+          <a href="{TagURL}">#{Tag} </a>
+          {/block:Tags}
+          </div>
+          {/block:HasTags}
+
+          <!-- Date + Notecount -->
+          <div class="post-meta__date">
+            <a href="{Permalink}">
+              {block:Date}
+                {block:NewDayDate}<p>{DayOfMonth} {Month} {Year}</p>{/block:NewDayDate}
+                {block:SameDayDate}<p>{DayOfMonth} {Month} {Year}</p>{/block:SameDayDate}
+              {/block:Date}
+            </a>
+          </div>
+
+          <div class="post-meta__notes">
+          <a href="{Permalink}">
+          {block:NoteCount} with {NoteCountWithLabel}{/block:NoteCount}
+          </a>
+          </div>
+
+          <!-- Share Controls -->
+
+          <div class="share-controls">
+            <a href="#" class="share selector icon-export"></a>
+            <nav class="share-menu" id="share_{PostID}">
+              <a href="#" class="share-item open-in-app" data-post="{PostID}">Open in app</a>
+              <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" class="share-item facebook" target="_blank">Facebook</a>
+              <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" class="share-item twitter" target="_blank">Tweet</a>
+              <a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}" class="share-item mail">Mail</a>
+            </nav>
+          </div>
+
+
+        </div>
+        <!-- End Index Post Meta -->
+
+
+        <!-- Start Permalink Post Meta -->
+        {block:PermalinkPage}
+
+          <!-- Post Notes -->
+          {block:PostNotes}
+          <div class="note-container">{PostNotes}</div>
+          {/block:PostNotes}
+
+          <!-- Post Pagination -->
+          {block:PermalinkPagination}
+          <div class="post-pagination clearfix">
+          {block:PreviousPost}<a class="post-pagination__prev"href="{PreviousPost}">{lang:Previous post}</a>{/block:PreviousPost}
+          {block:NextPost}<a class="post-pagination__next" href="{NextPost}">{lang:Next post}</a>{/block:NextPost}
+          </div>
+          {/block:PermalinkPagination}
+
+        {/block:PermalinkPage}
+        <!-- End Permalink Post Meta -->
+
+
+      </article>
+      {/block:Posts}
+
+
+
+    <!-- Start Page Pagination -->
+    {block:Pagination}
+    <div class="page-pagination">
+    <ul>
+    {block:PreviousPage}<li><a class="page-pagination__prev" href="{PreviousPage}">{lang:Previous}</a></li>{/block:PreviousPage}
+
+    {block:JumpPagination length="5"}
+    {block:CurrentPage}<li><span class="page-pagination__current">{PageNumber}</span></li>{/block:CurrentPage}
+    {block:JumpPage}<li><a class="page-pagination__jump" href="{URL}">{PageNumber}</a></li>{/block:JumpPage}
+    {/block:JumpPagination}
+
+    {block:NextPage}<li><a class="page-pagination__next" href="{NextPage}">{lang:Next}</a></li>{/block:NextPage}
+    </ul>
+    </div>
+    {/block:Pagination}
+    <!-- End Page Pagination -->
+
+
+    </section><!-- close content -->
+
+
+
+</div> <!-- End Container -->
+
+
+
+    <!-- Scripts -->
+    <script src="http://static.tumblr.com/fdpqc0a/mdNmz449b/jquery-2.0.3.min.js"></script>
+    <script src="http://static.tumblr.com/fdpqc0a/YWGmz44aj/jquery.masonry.min.js"></script>
+    <script src="http://static.tumblr.com/fdpqc0a/Fo6mz44b2/jquery.imagesloaded.min.js"></script>
+    <script src="http://static.tumblr.com/fdpqc0a/BSnmz44c0/jquery.infinitescroll.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script>
+    $(function() {
+
+        var $container = $('.content');
+        $container.imagesLoaded( function(){
+            $container.masonry({
+                itemSelector : '.posts-masonry-hook',
+
+            });
+        });
+
+        $container.infinitescroll({
+            loading: {
+                finishedMsg: "No more pages to load."
+                },
+                navSelector: ".pagination",
+                nextSelector: ".pagination ul li a",
+                itemSelector: ".posts-masonry-hook",
+                prefill: true,
+                bufferPx : 15000,
+                extraScrollPx: 15000
+            },
+            function( newElements ) {
+                var $newElems = $( newElements ).css({
+                    opacity: 0
+                });
+
+                var $newElemsIDs = $newElems.map(function () {
+                        return this.id;
+                }).get();
+
+
+                $newElems.imagesLoaded(function() {
+                    $newElems.animate({
+                        opacity:1
+                    });
+                    $container.masonry(
+                        'appended', $newElems, true
+                    );
+                });
+             Tumblr.LikeButton.get_status_by_post_ids($newElemsIDs);
+            }
+         );
+
+
+        // Open and Close Slider
+
+        var $openNav = $('#open-nav-menu');
+        var $closeNav = $('#close-nav-menu');
+        var $navMenu = $('#nav-menu');
+
+        $openNav.on('click', function(e) {
+          e.preventDefault();
+          $navMenu.animate({
+            left: "0"
+          }, 500);
+          e.stopImmediatePropagation();
+          $(this).animate({
+            opacity: "0"
+          }, 500);
+        })
+
+        // Category Dropdown
+
+        var $openCategoryLink = $('#open-category-links')
+        var $categoryLinks = $('#category-links');
+
+        $openCategoryLink.on('click', function(e) {
+          e.preventDefault();
+          $categoryLinks.slideToggle(500);
+        });
+
+
+    });
+    </script>
+
+
+
+
+
+    <!-- Theme Options -->
+    {block:IfTwitterFeed}
+    {block:Twitter}
+    <script type="text/javascript">
+    function recent_tweets(data) {
+    for (i=0; i<data.length; i++) {
+    document.getElementById("tweets").innerHTML =
+    document.getElementById("tweets").innerHTML +
+    '<a href="http://twitter.com/{TwitterUsername}/status/' +
+    (data[i].id_str ? data[i].id_str : data[i].id) +
+    '"><div class="content">' + data[i].text +
+    '</div></a>';
+    }
+    document.getElementById("twitter").style.display = 'block';
+    }
+    </script>
+    <script type="text/javascript" src="/tweets.js"></script>
+    {/block:Twitter}
+    {/block:IfTwitterFeed}
+
+    {block:IfGoogleAnalytics}
+    {block:IfGoogleAnalyticsID}
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{GoogleAnalyticsID}']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    {/block:IfGoogleAnalyticsID}
+    {/block:IfGoogleAnalytics}
+
+
+
+    </body>
+    </html>
