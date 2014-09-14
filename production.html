@@ -43,6 +43,8 @@
 
     <!-- Theme Options -->
     {block:Hidden}
+    <meta name="font:Heading" content="Arial, Helvetica, sans-serif"/>
+    <meta name="font:Body" content="Arial, Helvetica, sans-serif"/>
 
     <meta name="if:Twitter Feed" content="0">
     <meta name="if:Google Analytics" content="0">
@@ -161,6 +163,15 @@
     *zoom: 1;
     }
 
+      .screenreader-text {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
     </style>
 
     <!-- Theme CSS -->
@@ -176,6 +187,10 @@
 
     .container {
       margin-left: 242px;
+      font-family: {font:Body};
+    }
+    .globals {
+      font-size: 1.4rem;
     }
 
     .centered-layout {
@@ -196,14 +211,7 @@
       font-family: {TitleFont};
       font-weight: {TitleFontWeight};
     }
-    .screenreader-text {
-      position: absolute;
-      left: -10000px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
+
 
     .page-header__icons--search {
       color: #000;
@@ -268,7 +276,6 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
 
     .main-nav {
       background: #333;
-      font-family: sans-serif;
       height: 100%;
       position: fixed;
       top: 0;
@@ -313,6 +320,34 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
       margin: 0px 25px;
     }
 
+    .search__search-bar input[type="text"] {
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+    .search__search-bar input[type="submit"] {
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+
+
+
+
+    /* Content */
+    .posts {
+      width: 50%;
+      margin-bottom: 18px;
+      padding-right: 18px;
+    }
+
+    .posts__title--index {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+
+
 
     .post-meta {
       width: 100%;
@@ -322,20 +357,23 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
       display: none;
     }
     .post-meta__category a:nth-of-type(1) {
-      display: block;
+      display: inline-block;
+      padding: 1px 24px;
       color: #FFF;
+      font-size: 1.2rem;
+      text-transform: uppercase;
     }
 
     .post-meta__category a[href*="bola"] {
       background:#4D2988;
     }
-    .post-meta__category a[href*="ladriver"] {
+    .post-meta__category a[href*="la-driver"] {
       background: #F6E901;
     }
-    .post-meta__category a[href*="lasocial"] {
+    .post-meta__category a[href*="la-social"] {
       background: #F26F21;
     }
-    .post-meta__category a[href*="liquidla"] {
+    .post-meta__category a[href*="liquid-la"] {
       background: #B5901C;
     }
     .post-meta__category a[href*="features"] {
@@ -357,6 +395,26 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
       background: #ABC050;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+    .page-pagination {
+      display: none;
+    }
+
+
+
+
+
     </style>
 
     <!-- Custom CSS -->
@@ -374,7 +432,7 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
 
 
 <!-- Begin Container -->
-<div class="container">
+<div class="container globals">
 
     <!-- Header -->
     <header class="page-header">
@@ -429,6 +487,15 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
 
     <div class="clearfix main-nav__menu">
 
+    <div class="search">
+
+      <form class="search__search-bar" action="/search" method="get">
+        <input type="text" placeholder="{lang:Search}" name="q" value="{SearchQuery}">
+        <input type="submit" value="{lang:Search}">
+      </form>
+
+    </div>
+
       <div class="main-nav__items clearfix">
 
         <a href="#" class="main-nav__item" id="open-category-links">CATEGORIES<i class="fa fa-chevron-down"></i></a>
@@ -458,19 +525,12 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
     </nav>
 
 
-    <div class="search">
 
-      <form class="search__search-bar" action="/search" method="get">
-        <input type="text" placeholder="{lang:Search}" name="q" value="{SearchQuery}">
-        <input type="submit" value="{lang:Search}">
-      </form>
-
-    </div>
 
 
 
     <!-- Content = Search Page + Tag Page + Post Types -->
-    <section class="page-content centered-layout">
+    <section id="page-content" class="centered-layout">
 
 
       <!-- Search Page -->
@@ -490,10 +550,22 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
       {block:Posts}
       <article class="posts {TagsAsClasses} {block:NoteCount}{NoteCount} notecount {/block:NoteCount} {block:IndexPage}posts-masonry-hook{/block:IndexPage}" id="{PostID}">
 
+
+          <!-- Post "Category" -->
+          {block:HasTags}
+          <div class="post-meta__category">
+          {block:Tags}
+          <a href="{TagURL}">{Tag} </a>
+          {/block:Tags}
+          </div>
+          {/block:HasTags}
+
+
+
         <!-- Text -->
         {block:Text}
         <div class="text items">
-        {block:Title}<h3>{Title}</h3>{/block:Title}
+        {block:Title}<h3 class="posts__title--index">{Title}</h3>{/block:Title}
         {Body}
         </div>
 
@@ -619,14 +691,6 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
         <!-- Start Index Post Meta -->
         <div class="post-meta">
 
-          <!-- Post "Category" -->
-          {block:HasTags}
-          <div class="post-meta__category">
-          {block:Tags}
-          <a href="{TagURL}">#{Tag} </a>
-          {/block:Tags}
-          </div>
-          {/block:HasTags}
 
           <!-- Post Tags -->
           {block:HasTags}
@@ -696,6 +760,7 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
 
 
     <!-- Start Page Pagination -->
+
     {block:Pagination}
     <div class="page-pagination">
     <ul>
@@ -703,13 +768,14 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
 
     {block:JumpPagination length="5"}
     {block:CurrentPage}<li><span class="page-pagination__current">{PageNumber}</span></li>{/block:CurrentPage}
-    {block:JumpPage}<li><a class="page-pagination__jump" href="{URL}">{PageNumber}</a></li>{/block:JumpPage}
+    {block:JumpPage}<li><a class="page-pagination__jumpe" href="{URL}">{PageNumber}</a></li>{/block:JumpPage}
     {/block:JumpPagination}
 
     {block:NextPage}<li><a class="page-pagination__next" href="{NextPage}">{lang:Next}</a></li>{/block:NextPage}
     </ul>
     </div>
     {/block:Pagination}
+
     <!-- End Page Pagination -->
 
 
@@ -731,47 +797,47 @@ transform: rotate(-45deg) translate3d(5px, -5px, 0);
     <script>
     $(function() {
 
-        var $container = $('.content');
-        $container.imagesLoaded( function(){
-            $container.masonry({
-                itemSelector : '.posts-masonry-hook',
 
-            });
+        var $container = $('#page-content');
+    $container.imagesLoaded( function(){
+        $container.masonry({
+            itemSelector : '.posts-masonry-hook',
+
         });
+    });
 
-        $container.infinitescroll({
-            loading: {
-                finishedMsg: "No more pages to load."
-                },
-                navSelector: ".pagination",
-                nextSelector: ".pagination ul li a",
-                itemSelector: ".posts-masonry-hook",
-                prefill: true,
-                bufferPx : 15000,
-                extraScrollPx: 15000
-            },
-            function( newElements ) {
-                var $newElems = $( newElements ).css({
-                    opacity: 0
+    $container.infinitescroll({
+        loading: {
+            finishedMsg: "No more pages to load."
+        },
+            navSelector: ".page-pagination",
+            nextSelector: ".page-pagination__next",
+            itemSelector: ".posts-masonry-hook",
+            prefill: true,
+            bufferPx : 10000,
+            extraScrollPx: 10000
+        },
+        function( newElements ) {
+            var $newElems = $( newElements ).css({
+                opacity: 0
+            });
+
+            var $newElemsIDs = $newElems.map(function () {
+                    return this.id;
+            }).get();
+
+
+            $newElems.imagesLoaded(function() {
+                $newElems.animate({
+                    opacity:1
                 });
-
-                var $newElemsIDs = $newElems.map(function () {
-                        return this.id;
-                }).get();
-
-
-                $newElems.imagesLoaded(function() {
-                    $newElems.animate({
-                        opacity:1
-                    });
-                    $container.masonry(
-                        'appended', $newElems, true
-                    );
-                });
-             Tumblr.LikeButton.get_status_by_post_ids($newElemsIDs);
-            }
-         );
-
+                $container.masonry(
+                    'appended', $newElems, true
+                );
+            });
+         Tumblr.LikeButton.get_status_by_post_ids($newElemsIDs);
+        }
+     );
 
         // Open and Close Slider
 
